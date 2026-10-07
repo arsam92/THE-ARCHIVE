@@ -1,0 +1,23 @@
+[
+  { "id": "clue.bk_ok", "type": "clue", "season": "season.1", "title_key": "bk.ok" },
+  { "type": "clue", "season": "season.1", "title_key": "bk.ok" },
+  { "id": "widget.bk_x", "type": "widget" },
+  { "id": "clue.bk_ok", "type": "clue", "season": "season.1", "title_key": "bk.ok" },
+  "just a string",
+  { "id": "clue.bk_dangling", "type": "clue", "season": "season.1", "title_key": "bk.ok",
+    "refs": [ { "rel": "references", "to": "clue.nope" } ] },
+  { "id": "clue.bk_cyc_a", "type": "clue", "season": "season.1", "title_key": "bk.ok",
+    "refs": [ { "rel": "requires", "to": "clue.bk_cyc_b" } ] },
+  { "id": "clue.bk_cyc_b", "type": "clue", "season": "season.1", "title_key": "bk.ok",
+    "refs": [ { "rel": "requires", "to": "clue.bk_cyc_a" } ] },
+  { "id": "message.bk_msg", "type": "message", "season": "season.1", "body_key": "bk.ok",
+    "sender": { "displayed": { "source": "UNKNOWN", "id": "X-1" }, "true_identity": "identity.ghost" } },
+  { "id": "dialogue.bk_dlg", "type": "dialogue", "season": "season.1", "start": "n1",
+    "nodes": {
+      "n1": { "text_key": "bk.ok", "next": "zz",
+        "effects": [ { "op": "nuke", "id": "x" } ] },
+      "n2": { "text_key": "bk.ok", "choices": [ { "text_key": "bk.ok", "conditions": { "bogus_op": 1 } } ] }
+    } },
+  { "id": "clue.bk_nokey", "type": "clue", "season": "season.1", "title_key": "bk.missing" },
+  { "id": "clue.bk_badseason", "type": "clue", "season": "season.99", "title_key": "bk.ok" }
+]

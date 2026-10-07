@@ -1,0 +1,23 @@
+{
+  "fx.location.room": "[FIXTURE] Room",
+  "fx.clue.a": "[FIXTURE] Clue A",
+  "fx.clue.b": "[FIXTURE] Clue B",
+  "fx.clue.decoy": "[FIXTURE] Decoy clue",
+  "fx.clue.d": "[FIXTURE] Clue D",
+  "fx.clue.future": "[FIXTURE] Future clue",
+  "fx.file.log": "[FIXTURE] Log file",
+  "fx.message.17a.body": "[FIXTURE] Message body",
+  "fx.choice.trust": "[FIXTURE] Trust",
+  "fx.choice.doubt": "[FIXTURE] Doubt",
+  "fx.dlg.n1": "[FIXTURE] Line 1",
+  "fx.dlg.c_trust": "[FIXTURE] Option trust",
+  "fx.dlg.c_doubt": "[FIXTURE] Option doubt",
+  "fx.dlg.c_secret": "[FIXTURE] Option secret",
+  "fx.dlg.n2": "[FIXTURE] Line 2",
+  "fx.dlg.n3": "[FIXTURE] Line 3",
+  "fx.dlg.n4": "[FIXTURE] Line 4",
+  "fx.dlg.n5": "[FIXTURE] Line 5",
+  "fx.end.trust": "[FIXTURE] Ending trust",
+  "fx.end.doubt": "[FIXTURE] Ending doubt",
+  "fx.end.default": "[FIXTURE] Ending default"
+}

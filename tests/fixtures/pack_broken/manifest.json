@@ -1,0 +1,8 @@
+{
+  "pack_id": "fixture_broken",
+  "version": "0.0.1",
+  "schema": 1,
+  "dependencies": ["core"],
+  "files": ["bad_json.json", "entities.json"],
+  "locales": { "en": "locales/en.json" }
+}

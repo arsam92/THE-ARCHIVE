@@ -1,0 +1,8 @@
+{
+  "pack_id": "fixture_basic",
+  "version": "0.0.1",
+  "schema": 1,
+  "dependencies": ["core"],
+  "files": ["entities.json"],
+  "locales": { "en": "locales/en.json" }
+}

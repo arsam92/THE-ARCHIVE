@@ -1,0 +1,9 @@
+[
+  { "id": "identity.nora", "type": "identity", "name_key": "identity.nora.name" },
+  { "id": "identity.elias", "type": "identity", "name_key": "identity.elias.name" },
+  { "id": "identity.archive", "type": "identity", "name_key": "identity.archive.name" },
+  { "id": "identity.observer", "type": "identity", "name_key": "identity.observer.name" },
+  { "id": "identity.subject_zero", "type": "identity", "name_key": "identity.subject_zero.name" },
+  { "id": "identity.future_player", "type": "identity", "name_key": "identity.future_player.name" },
+  { "id": "identity.unknown_source", "type": "identity", "name_key": "identity.unknown_source.name" }
+]

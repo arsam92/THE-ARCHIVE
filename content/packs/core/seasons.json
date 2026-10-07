@@ -1,0 +1,34 @@
+[
+  {
+    "id": "season.1", "type": "season", "order": 1, "name_key": "season.1.name",
+    "refs": [
+      { "rel": "connects_to", "to": "season.2" },
+      { "rel": "connects_to", "to": "season.3" },
+      { "rel": "connects_to", "to": "season.4" }
+    ]
+  },
+  {
+    "id": "season.2", "type": "season", "order": 2, "name_key": "season.2.name",
+    "refs": [
+      { "rel": "connects_to", "to": "season.1" },
+      { "rel": "connects_to", "to": "season.3" },
+      { "rel": "connects_to", "to": "season.4" }
+    ]
+  },
+  {
+    "id": "season.3", "type": "season", "order": 3, "name_key": "season.3.name",
+    "refs": [
+      { "rel": "connects_to", "to": "season.1" },
+      { "rel": "connects_to", "to": "season.2" },
+      { "rel": "connects_to", "to": "season.4" }
+    ]
+  },
+  {
+    "id": "season.4", "type": "season", "order": 4, "name_key": "season.4.name",
+    "refs": [
+      { "rel": "reinterprets", "to": "season.1" },
+      { "rel": "reinterprets", "to": "season.2" },
+      { "rel": "reinterprets", "to": "season.3" }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  { "id": "location.fx_room", "type": "location", "season": "season.1", "name_key": "fx.location.room" },
+
+  { "id": "clue.fx_a", "type": "clue", "season": "season.1", "title_key": "fx.clue.a",
+    "refs": [ { "rel": "located_in", "to": "location.fx_room" }, { "rel": "foreshadows", "to": "clue.fx_future" } ] },
+  { "id": "clue.fx_b", "type": "clue", "season": "season.1", "title_key": "fx.clue.b",
+    "refs": [ { "rel": "requires", "to": "clue.fx_a" } ] },
+  { "id": "clue.fx_decoy", "type": "clue", "season": "season.2", "title_key": "fx.clue.decoy",
+    "refs": [ { "rel": "references", "to": "clue.fx_a" } ] },
+  { "id": "clue.fx_d", "type": "clue", "season": "season.3", "title_key": "fx.clue.d",
+    "unlock": { "season_unlocked": "season.3" } },
+  { "id": "clue.fx_future", "type": "clue", "season": "season.4", "title_key": "fx.clue.future",
+    "refs": [ { "rel": "reinterprets", "to": "clue.fx_a" } ],
+    "unlock": { "has_clue": "clue.fx_b" } },
+
+  { "id": "file.fx_log", "type": "file", "season": "season.1", "title_key": "fx.file.log",
+    "refs": [ { "rel": "reveals", "to": "clue.fx_a" } ] },
+
+  { "id": "message.fx_17a", "type": "message", "season": "season.1", "body_key": "fx.message.17a.body",
+    "sender": {
+      "displayed": { "source": "UNKNOWN", "id": "17-A" },
+      "true_identity": "identity.observer",
+      "authenticity": { "displayed": "UNKNOWN", "true": "SUSPECT", "verify_with": ["clue.fx_b"] }
+    },
+    "attribution": [
+      { "clue": "clue.fx_a", "identity": "identity.nora", "weight": 0.6 },
+      { "clue": "clue.fx_b", "identity": "identity.nora", "weight": 0.6 },
+      { "clue": "clue.fx_decoy", "identity": "identity.elias", "weight": 0.6 },
+      { "clue": "clue.fx_d", "identity": "identity.elias", "weight": 0.9 }
+    ],
+    "refs": [ { "rel": "references", "to": "clue.fx_a" } ] },
+
+  { "id": "choice.fx_trust", "type": "choice", "season": "season.1",
+    "options": [ { "id": "trust", "text_key": "fx.choice.trust" }, { "id": "doubt", "text_key": "fx.choice.doubt" } ] },
+
+  { "id": "dialogue.fx_intro", "type": "dialogue", "season": "season.1", "start": "n1",
+    "nodes": {
+      "n1": { "speaker": "identity.nora", "text_key": "fx.dlg.n1", "portrait": "worried",
+        "choices": [
+          { "text_key": "fx.dlg.c_trust", "next": "n2",
+            "effects": [ { "op": "set_choice", "id": "choice.fx_trust", "option": "trust" } ] },
+          { "text_key": "fx.dlg.c_doubt", "next": "n3",
+            "effects": [ { "op": "set_choice", "id": "choice.fx_trust", "option": "doubt" } ] },
+          { "text_key": "fx.dlg.c_secret", "next": "n4", "conditions": { "has_clue": "clue.fx_a" } }
+        ] },
+      "n2": { "speaker": "identity.nora", "text_key": "fx.dlg.n2",
+        "effects": [ { "op": "set_flag", "id": "trusted_nora" } ], "end": true },
+      "n3": { "text_key": "fx.dlg.n3", "next": "n5" },
+      "n4": { "text_key": "fx.dlg.n4",
+        "effects": [ { "op": "add_clue", "id": "clue.fx_b" } ], "end": true },
+      "n5": { "text_key": "fx.dlg.n5", "end": true }
+    } },
+
+  { "id": "puzzle.fx_code", "type": "puzzle", "season": "season.1", "kind": "code", "solution": "17-A",
+    "effects": [ { "op": "add_clue", "id": "clue.fx_b" } ] },
+  { "id": "puzzle.fx_seq", "type": "puzzle", "season": "season.1", "kind": "sequence", "solution": ["a", "b", "c"],
+    "effects": [ { "op": "set_flag", "id": "seq_done" } ] },
+  { "id": "puzzle.fx_pair", "type": "puzzle", "season": "season.1", "kind": "pairing",
+    "solution": [ ["clue.fx_a", "clue.fx_b"], ["clue.fx_decoy", "clue.fx_d"] ],
+    "effects": [ { "op": "set_flag", "id": "pairs_done" } ] },
+
+  { "id": "ending.fx_trust", "type": "ending", "title_key": "fx.end.trust", "priority": 10,
+    "conditions": { "all": [ { "choice": { "id": "choice.fx_trust", "option": "trust" } }, { "flag": "seq_done" } ] } },
+  { "id": "ending.fx_doubt", "type": "ending", "title_key": "fx.end.doubt", "priority": 5,
+    "conditions": { "choice": { "id": "choice.fx_trust", "option": "doubt" } } },
+  { "id": "ending.fx_default", "type": "ending", "title_key": "fx.end.default", "priority": 0,
+    "conditions": [] }
+]

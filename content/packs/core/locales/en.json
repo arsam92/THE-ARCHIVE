@@ -1,0 +1,22 @@
+{
+  "season.1.name": "Season I",
+  "season.2.name": "Season II",
+  "season.3.name": "Season III",
+  "season.4.name": "Season IV",
+
+  "identity.nora.name": "Nora",
+  "identity.elias.name": "Elias",
+  "identity.archive.name": "Archive",
+  "identity.observer.name": "Observer",
+  "identity.subject_zero.name": "Subject Zero",
+  "identity.future_player.name": "Future Player",
+  "identity.unknown_source.name": "Unknown Source",
+
+  "ui.source": "SOURCE",
+  "ui.id": "ID",
+  "ui.authenticity": "AUTHENTICITY",
+  "auth.UNKNOWN": "UNKNOWN",
+  "auth.VERIFIED": "VERIFIED",
+  "auth.SUSPECT": "SUSPECT",
+  "auth.FORGED": "FORGED"
+}

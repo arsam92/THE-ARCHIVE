@@ -1,0 +1,6 @@
+{
+  "pack_id": "fixture_traversal",
+  "version": "0.0.1",
+  "schema": 1,
+  "files": ["../pack_basic/entities.json"]
+}

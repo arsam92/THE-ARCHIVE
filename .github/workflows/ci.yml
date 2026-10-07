@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+env:
+  GODOT_VERSION: 4.3-stable
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Godot
+        run: |
+          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          unzip -q godot.zip
+          sudo mv "Godot_v${GODOT_VERSION}_linux.x86_64" /usr/local/bin/godot
+
+      - name: Import project
+        run: godot --headless --path . --import
+
+      - name: Validate shipped content
+        run: |
+          set -o pipefail
+          godot --headless --path . -s tools/validate_content.gd 2>&1 | tee validate.log
+          ! grep -E "SCRIPT ERROR|Parse Error" validate.log
+
+      - name: Run tests
+        run: |
+          set -o pipefail
+          godot --headless --path . -s tests/run_tests.gd 2>&1 | tee tests.log
+          ! grep -E "SCRIPT ERROR|Parse Error" tests.log

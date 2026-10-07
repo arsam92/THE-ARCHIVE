@@ -196,7 +196,10 @@ And of course...
 
 This repository intentionally avoids revealing major story twists.
 
+Writers and designers: the ARG Director bible is in [`SPOILERS/`](SPOILERS/). That folder will ruin the game. Players should not open it.
+
 If you are a player:
+
 
 **Do not read the entire repository before playing.**
 
